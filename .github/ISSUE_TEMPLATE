@@ -1,0 +1,30 @@
+---
+name: Feature Request
+about: Suggest an idea or new feature for this project
+title: 'Feature: [ concisely describe the feature ]'
+labels: ['enhancement', 'feature']
+assignees: ''
+---
+
+## Summary
+A clear and concise description of what the feature is. Example: "Implement user profiles"
+
+## Goal / Problem Statement / User Story
+* **Why is this feature needed?** (Describe the current limitation or problem)
+* **What is the desired outcome?** (Describe how things should work with this feature)
+* **(Optional) User Story:** As a [type of user, e.g., registered user], I want to [perform some action, e.g., edit my profile information] so that [some benefit is achieved, e.g., I can keep my details up-to-date].
+
+## Proposed Solution / Implementation Details (Optional)
+* [Describe potential technical implementation details]
+* [Consider edge cases or alternative solutions]
+
+## Acceptance Criteria
+* [ ] Criterion 1: (e.g., A new 'Profile' page is accessible from the main menu)
+* [ ] Criterion 2: (e.g., Users can view their profile information)
+* [ ] Criterion 3: (e.g., Users can successfully save changes to their profile)
+* [ ] Criterion 4: (e.g., The feature works correctly on Chrome, Firefox, and Safari)
+
+## Additional Context / Resources
+* Mockups: [Link or image upload]
+* Related Issues: #[Issue Number]
+* External Documentation: [Link]
