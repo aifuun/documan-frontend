@@ -1,102 +1,142 @@
-import Image from "next/image";
+'use client'
+import Auth from "@/components/auth";
+import { useState } from "react";
 
 export default function Home() {
+  const [language, setLanguage] = useState<'en' | 'zh'>('en');
+  
+  const content = {
+    en: {
+      title: "AI Document Assistant",
+      subtitle: "Powered by Amazon Bedrock",
+      description: "Documan helps you understand documents faster with AI-powered summaries and answers to your questions. Upload any document and let our AI extract key insights and respond to your specific queries about the content.",
+      sections: [
+        {
+          title: "What it does",
+          content: "Analyzes documents using advanced AI to extract key information, generate concise summaries, and provide accurate answers to your specific questions about the content."
+        },
+        {
+          title: "How it works",
+          content: "Leveraging Amazon Bedrock's powerful language models, Documan processes your documents, understands the context, and provides intelligent insights in seconds."
+        }
+      ],
+      features: [
+        "Smart Summaries",
+        "Q&A Interface",
+        "Secure Storage"
+      ],
+      welcome: "Welcome to Documan",
+      tagline: "Your document management solution"
+    },
+    zh: {
+      title: "AI 文档助手",
+      subtitle: "由 Amazon Bedrock 提供支持",
+      description: "Documan 通过 AI 生成的摘要和问答功能，帮助您更快地理解文档内容。上传任何文档，让我们的 AI 提取关键见解并回答您对内容的特定问题。",
+      sections: [
+        {
+          title: "功能介绍",
+          content: "使用先进的人工智能分析文档，提取关键信息，生成简洁摘要，并对文档内容的特定问题提供准确答案。"
+        },
+        {
+          title: "工作原理",
+          content: "借助 Amazon Bedrock 强大的语言模型，Documan 处理您的文档，理解上下文，并在几秒钟内提供智能见解。"
+        }
+      ],
+      features: [
+        "智能摘要",
+        "问答界面",
+        "安全存储"
+      ],
+      welcome: "欢迎使用 Documan",
+      tagline: "您的文档管理解决方案"
+    }
+  };
+  
+  const currentContent = content[language];
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="h-screen flex flex-col bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+      {/* Main Content Area */}
+      <div className="flex-1 overflow-auto py-6">
+        <div className="container mx-auto px-4 h-full flex flex-col">
+          {/* Language Toggle */}
+          <div className="flex justify-end mb-4">
+            <button 
+              onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}
+              className="flex items-center space-x-2 bg-gray-700 text-gray-100 px-3 py-1 rounded-md hover:bg-gray-600 transition-colors text-sm"
+            >
+              <span>{language === 'en' ? '中文' : 'English'}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Two-Column Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+            {/* Left Column - Project Description */}
+            <div className="bg-gray-50/90 rounded-xl shadow-xl border border-gray-700/20 flex flex-col h-full">
+              <div className="p-8 flex flex-col h-full">
+                {/* Header */}
+                <div className="text-center md:text-left mb-5">
+                  <h2 className="text-3xl font-bold text-gray-800">{currentContent.title}</h2>
+                  <p className="text-indigo-600 mt-2 font-medium">{currentContent.subtitle}</p>
+                </div>
+                
+                {/* Main Description */}
+                <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
+                  <p className="text-gray-700 leading-relaxed">
+                    {currentContent.description}
+                  </p>
+                </div>
+                
+                {/* Sections */}
+                <div className="space-y-5 mb-6 flex-1">
+                  {currentContent.sections.map((section, index) => (
+                    <div key={index} className="border-l-4 border-indigo-500 pl-4">
+                      <h3 className="font-semibold text-gray-800 mb-1">{section.title}</h3>
+                      <p className="text-gray-600 text-sm">{section.content}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Features */}
+                <div className="mt-auto">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3 font-medium">Key Features</h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {currentContent.features.map((feature, index) => (
+                      <div key={index} className="bg-blue-50 rounded-md p-3 text-center text-sm text-blue-800 font-medium">
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Auth Component */}
+            <div className="bg-gray-50 rounded-xl shadow-2xl overflow-hidden border border-gray-700/20 h-full flex flex-col">
+              <div className="p-8 flex flex-col h-full">
+                <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+                  {currentContent.welcome}
+                </h1>
+                
+                <p className="text-gray-600 text-center mb-8">
+                  {currentContent.tagline}
+                </p>
+                
+                <div className="authenticator-wrapper w-full max-w-full overflow-visible flex-1">
+                  <Auth />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+      
+      {/* Footer */}
+      <footer className="py-4 text-center text-gray-300 text-sm bg-gray-900 border-t border-gray-800">
+        © {new Date().getFullYear()} Documan. All rights reserved.
       </footer>
     </div>
   );
