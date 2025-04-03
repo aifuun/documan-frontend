@@ -9,6 +9,8 @@ import outputs from "@/../amplify_outputs.json";
 Amplify.configure(outputs);
 
 
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
