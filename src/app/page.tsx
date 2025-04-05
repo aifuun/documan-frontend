@@ -1,5 +1,5 @@
 'use client'
-import Auth from "@/components/auth/auth";
+import Login from "@/components/auth/Login";
 import { useState } from "react";
 
 export default function Home() {
@@ -126,7 +126,7 @@ export default function Home() {
                 </p>
                 
                 <div className="authenticator-wrapper w-full max-w-full overflow-visible flex-1">
-                  <Auth />
+                  <Login />
                 </div>
               </div>
             </div>
