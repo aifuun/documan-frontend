@@ -30,17 +30,7 @@ import {
   ShieldCheckIcon,
   UserIcon,
 } from '@heroicons/react/20/solid'
-import {
-  Cog6ToothIcon,
-  HomeIcon,
-  InboxIcon,
-  MagnifyingGlassIcon,
-  MegaphoneIcon,
-  QuestionMarkCircleIcon,
-  SparklesIcon,
-  Square2StackIcon,
-  TicketIcon,
-} from '@heroicons/react/20/solid'
+
 
 export default function SidebarFootContent() {
 
