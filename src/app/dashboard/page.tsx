@@ -1,13 +1,13 @@
 
 
 
-import { Navbar } from '@/components/ui/navbar'
-import { Sidebar, SidebarHeader } from '@/components/ui/sidebar'
-import { SidebarLayout } from '@/components/ui/sidebar-layout'
-import SidebarBodyContent from '@/components/sidebar/sidebar-body-content'
-import SidebarHeaderContent from '@/components/sidebar/sidebar-header-content'
-import SidebarFootContent from '@/components/sidebar/sidebar-foot-content'
-import DialogContent from '@/components/page-content/dialog-content'
+import { Navbar } from '@/components/cata-ui/navbar'
+import { Sidebar, SidebarHeader } from '@/components/cata-ui/sidebar'
+import { SidebarLayout } from '@/components/cata-ui/sidebar-layout'
+import SidebarBodyContent from '@/components/dashboard-sidebar/sidebar-body-content'
+import SidebarHeaderContent from '@/components/dashboard-sidebar/sidebar-header-content'
+import SidebarFootContent from '@/components/dashboard-sidebar/sidebar-foot-content'
+import DialogContent from '@/components/dashboard-content/dialog-content'
 
 export default function Dashboard() {
   return (

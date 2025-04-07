@@ -1,4 +1,4 @@
-import { Avatar } from '@/components/ui/avatar'
+import { Avatar } from '@/components/cata-ui/avatar'
 
 import {
   Dropdown,
@@ -7,14 +7,14 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu
-} from '@/components/ui/dropdown'
+} from '@/components/cata-ui/dropdown'
 
 import {
   SidebarHeader,
   SidebarItem,
   SidebarLabel,
   SidebarSection,
-} from '@/components/ui/sidebar'
+} from '@/components/cata-ui/sidebar'
 
 import {
   ChevronDownIcon,

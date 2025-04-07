@@ -15,7 +15,7 @@ export default function Login() {
           router.push("/dashboard");
           return (
             <div className="text-center p-4">
-              <p>登录成功！正在跳转...</p>
+              <p>Log in successfully.</p>
             </div>
           );
         }}
