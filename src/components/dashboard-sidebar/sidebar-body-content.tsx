@@ -1,6 +1,6 @@
 
 
-import { Avatar } from '@/components/ui/avatar'
+import { Avatar } from '@/components/catalyst-ui/avatar'
 import {
   Dropdown,
   DropdownButton,
@@ -8,7 +8,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from '@/components/ui/dropdown'
+} from '@/components/catalyst-ui/dropdown'
 import {
   Sidebar,
   SidebarBody,
@@ -18,7 +18,7 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from '@/components/ui/sidebar'
+} from '@/components/catalyst-ui/sidebar'
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,
@@ -48,37 +48,35 @@ export default function SidebarBodyContent() {
     return (
         <SidebarBody>
         <SidebarSection>
-          <SidebarItem href="/home">
+          <SidebarItem href="/dashboard/overview">
             <HomeIcon />
-            <SidebarLabel>Home</SidebarLabel>
+            <SidebarLabel>Overview</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/events">
-            <Square2StackIcon />
-            <SidebarLabel>Events</SidebarLabel>
+          <SidebarItem href="/dashboard/my-documents">
+            < Square2StackIcon />
+            <SidebarLabel>My Documents</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/orders">
-            <TicketIcon />
-            <SidebarLabel>Orders</SidebarLabel>
+          <SidebarItem href="/dashboard/upload">
+            <PlusIcon />
+            <SidebarLabel>Upload New Documents</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/broadcasts">
-            <MegaphoneIcon />
-            <SidebarLabel>Broadcasts</SidebarLabel>
+          <SidebarItem href="/dashboard/faq">
+            < MegaphoneIcon />
+            <SidebarLabel>Saved Q&A</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/settings">
-            <Cog6ToothIcon />
-            <SidebarLabel>Settings</SidebarLabel>
-          </SidebarItem>
+ 
         </SidebarSection>
         <SidebarSpacer />
         <SidebarSection>
-          <SidebarItem href="/support">
+          <SidebarItem href="/dashboard/settings">
+            < Cog8ToothIcon />
+            <SidebarLabel>Settings</SidebarLabel>
+          </SidebarItem>
+          <SidebarItem href="/dashboard/support">
             <QuestionMarkCircleIcon />
             <SidebarLabel>Support</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/changelog">
-            <SparklesIcon />
-            <SidebarLabel>Changelog</SidebarLabel>
-          </SidebarItem>
+         
         </SidebarSection>
       </SidebarBody>
     )
