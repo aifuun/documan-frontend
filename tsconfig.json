@@ -18,10 +18,33 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "#/*": ["./src/*"],
-      "$/*": ["./*"],
-    }
+"baseUrl": "./",
+"paths": {
+  // Root alias for the entire src directory
+  // "@/*": ["./src/*"],
+
+  // Alias for components directory
+  "@/components/*": ["./src/components/*"],
+
+  // Alias for custom React hooks
+  "@/hooks/*": ["./src/hooks/*"],
+
+  // Alias for shared libraries or utilities
+  "@/lib/*": ["./src/lib/*"],
+
+  // Alias for Next.js pages
+  "@/pages/*": ["./src/pages/*"],
+
+  // Alias for global styles
+  "@/styles/*": ["./src/styles/*"],
+
+  // Alias for TypeScript type definitions
+  "@/types/*": ["./src/types/*"],
+
+  // Alias for utility functions
+  "@/utils/*": ["./src/utils/*"]
+}
+   
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

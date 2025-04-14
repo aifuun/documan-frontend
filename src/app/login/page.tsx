@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Login from '#/components/auth/Login';
-import LanguageSwitcher from '#/components/interactive/language-switcher';
-import Description from '#/components/product-description/description';
+import Login from '@/components/auth/Login';
+import LanguageSwitcher from '@/components/interactive/language-switcher';
+import Description from '@/components/product-description/description';
 import { getCoverContent } from '#/config/cover-content';
 
 export default function LoginPage() {

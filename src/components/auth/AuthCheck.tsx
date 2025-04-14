@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { AuthGetCurrentUserServer } from '#/utils/amplify-utils';
+import { AuthGetCurrentUserServer } from '@/utils/amplify-utils';
 
 export default async function AuthCheck() {
   try {

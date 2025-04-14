@@ -17,6 +17,9 @@ export const cookiesClient = generateServerClientUsingCookies<Schema>({
   cookies,
 });
 
+
+
+
 export async function AuthGetCurrentUserServer() {
   try {
     const currentUser = await runWithAmplifyServerContext({
@@ -25,6 +28,7 @@ export async function AuthGetCurrentUserServer() {
     });
     return currentUser;
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching current user:", error);
+    return null;
   }
 }

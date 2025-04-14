@@ -1,4 +1,5 @@
-import { Avatar } from '#/components/catalyst-ui/avatar'
+
+import { Avatar } from '@/components/catalyst-ui/avatar'
 
 import {
   Dropdown,
@@ -7,14 +8,14 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu
-} from '#/components/catalyst-ui/dropdown'
+} from '@/components/catalyst-ui/dropdown'
 
 import {
   SidebarHeader,
   SidebarItem,
   SidebarLabel,
   SidebarSection,
-} from '#/components/catalyst-ui/sidebar'
+} from '@/components/catalyst-ui/sidebar'
 
 import {
   ChevronDownIcon,
