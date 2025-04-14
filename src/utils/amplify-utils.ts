@@ -5,7 +5,7 @@ import { createServerRunner } from "@aws-amplify/adapter-nextjs";
 import { generateServerClientUsingCookies } from "@aws-amplify/adapter-nextjs/api";
 import { getCurrentUser } from "aws-amplify/auth/server";
 
-import { type Schema } from "$/amplify/data/resource";
+import { type Schema } from "$/amplify/storage/resource";
 import outputs from "$/amplify_outputs.json";
 
 export const { runWithAmplifyServerContext } = createServerRunner({
@@ -17,6 +17,9 @@ export const cookiesClient = generateServerClientUsingCookies<Schema>({
   cookies,
 });
 
+
+
+
 export async function AuthGetCurrentUserServer() {
   try {
     const currentUser = await runWithAmplifyServerContext({
@@ -25,6 +28,8 @@ export async function AuthGetCurrentUserServer() {
     });
     return currentUser;
   } catch (error) {
+
+    console.error("Error fetching current user:", error);
     return null;
   }
 }

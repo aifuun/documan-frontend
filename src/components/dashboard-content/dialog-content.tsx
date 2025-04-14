@@ -2,10 +2,11 @@
 
 'use client'
 
-import { Button } from '@/components/cata-ui/button'
-import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/cata-ui/dialog'
-import { Field, Label } from '@/components/cata-ui/fieldset'
-import { Input } from '@/components/cata-ui/input'
+
+import { Button } from '@/components/catalyst-ui/button'
+import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/catalyst-ui/dialog'
+import { Field, Label } from '@/components/catalyst-ui/fieldset'
+import { Input } from '@/components/catalyst-ui/input'
 import { useState } from 'react'
 
 export default function DialogContent() {  let [isOpen, setIsOpen] = useState(false)
