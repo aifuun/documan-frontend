@@ -1,5 +1,6 @@
 
 
+
 import { Avatar } from '@/components/catalyst-ui/avatar'
 import {
   Dropdown,
@@ -8,6 +9,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
+
 } from '@/components/catalyst-ui/dropdown'
 import {
   Sidebar,
@@ -18,6 +20,7 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
+
 } from '@/components/catalyst-ui/sidebar'
 import {
   ArrowRightStartOnRectangleIcon,
@@ -48,6 +51,7 @@ export default function SidebarBodyContent() {
     return (
         <SidebarBody>
         <SidebarSection>
+
           <SidebarItem href="/dashboard/overview">
             <HomeIcon />
             <SidebarLabel>Overview</SidebarLabel>

@@ -20,6 +20,7 @@ function Login() {
     <div className="flex flex-col items-center justify-center h-full">
       {/* Authenticator 组件仍然需要渲染 */}
       <Authenticator>
+
         {/* 你可能仍然需要在 render prop 中渲染一些内容，或者根据你的需求进行调整 */}
         {({ signOut }) => <p>Logging in...</p>}
       </Authenticator>

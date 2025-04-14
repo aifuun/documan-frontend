@@ -1,3 +1,4 @@
+
 import { Avatar } from '@/components/catalyst-ui/avatar';
 import { AuthGetCurrentUserServer } from '@/utils/amplify-utils';
 import {
@@ -7,6 +8,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
+
 } from '@/components/catalyst-ui/dropdown';
 import {
   SidebarFooter,
@@ -53,6 +55,7 @@ export default async function SidebarFootContent() {
             <ChevronUpIcon />
           </DropdownButton>
           <DropdownMenu className="min-w-64" anchor="top start">
+
             {user ? (
               <>
                 <DropdownItem href="/my-profile">

@@ -1,3 +1,4 @@
+
 import { Avatar } from '@/components/catalyst-ui/avatar'
 
 import {
@@ -7,6 +8,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu
+
 } from '@/components/catalyst-ui/dropdown'
 
 import {
@@ -14,6 +16,7 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarSection,
+
 } from '@/components/catalyst-ui/sidebar'
 
 import {
