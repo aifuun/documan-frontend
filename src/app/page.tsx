@@ -1,5 +1,5 @@
 'use client'
-import Login from "@/components/auth/Login";
+import Login from "#/components/auth/Login";
 import { useState } from "react";
 
 export default function Home() {

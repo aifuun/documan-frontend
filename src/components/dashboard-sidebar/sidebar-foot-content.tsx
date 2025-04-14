@@ -1,7 +1,7 @@
 
 
 
-import { Avatar } from '@/components/ui/avatar'
+import { Avatar } from '#/components/catalyst-ui/avatar'
 import {
   Dropdown,
   DropdownButton,
@@ -9,7 +9,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from '@/components/ui/dropdown'
+} from '#/components/catalyst-ui/dropdown'
 import {
   Sidebar,
   SidebarBody,
@@ -19,7 +19,7 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from '@/components/ui/sidebar'
+} from '#/components/catalyst-ui/sidebar'
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,
