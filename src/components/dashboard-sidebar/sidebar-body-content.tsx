@@ -21,7 +21,7 @@ export default function SidebarBodyContent() {
           <HomeIcon />
           <SidebarLabel>Overview</SidebarLabel>
         </SidebarItem>
-        <SidebarItem href="/dashboard/my-documents">
+        <SidebarItem href="/dashboard/list">
           <Square2StackIcon />
           <SidebarLabel>My Documents</SidebarLabel>
         </SidebarItem>

@@ -1,54 +1,53 @@
-import { NextRequest, NextResponse } from "next/server"; // 从 'next/server' 模块导入 NextRequest 和 NextResponse 类型，它们是处理 Next.js 中间件请求和响应的核心 [1, 2]
+import { NextRequest, NextResponse } from "next/server"; // Import NextRequest and NextResponse types from 'next/server', which are used to handle middleware requests and responses in Next.js.
 
-import { fetchAuthSession } from "aws-amplify/auth/server"; // 从 'aws-amplify/auth/server' 导入 fetchAuthSession 函数，该函数用于在服务器端获取用户的身份验证会话信息 [1, 2]
+import { fetchAuthSession } from "aws-amplify/auth/server"; // Import fetchAuthSession from 'aws-amplify/auth/server', which is used to retrieve user authentication session information on the server side.
 
-// 从 '@/utils/amplify-utils' 导入 runWithAmplifyServerContext 函数，它提供了一个在 Next.js 服务器环境中运行 Amplify 相关操作的上下文 [1-4]
-import { runWithAmplifyServerContext } from "#/utils/amplify-utils"; // 从 '@/utils/amplify-utils' 导入 runWithAmplifyServerContext 函数，它提供了一个在 Next.js 服务器环境中运行 Amplify 相关操作的上下文 [1-4]
+import { runWithAmplifyServerContext } from "@/utils/amplify-utils"; // Import runWithAmplifyServerContext from '@/utils/amplify-utils', which provides a context for running Amplify-related operations in the Next.js server environment.
 
 export async function middleware(request: NextRequest) {
-  // 定义一个名为 middleware 的异步函数，它接收一个 NextRequest 对象作为参数。这个函数将在每个匹配的路由被处理之前执行 [1, 2]
+  // Define an asynchronous middleware function that takes a NextRequest object as a parameter. This function is executed before any matched route is processed.
   const response = NextResponse.next();
-  // 创建一个 NextResponse 对象，调用 next() 方法表示如果中间件没有进行重定向或其他操作，则继续处理原始请求 [1, 2]
+  // Create a NextResponse object and call the next() method to indicate that the original request should proceed if no redirection or other action is performed by the middleware.
 
   const authenticated = await runWithAmplifyServerContext({
-    // 使用 runWithAmplifyServerContext 函数来执行一个需要 Amplify 上下文的操作，并等待结果 [1, 2]
+    // Use runWithAmplifyServerContext to execute an operation that requires Amplify context and wait for the result.
     nextServerContext: { request, response },
-    // 将当前的 Next.js 请求 (request) 和响应 (response) 对象传递给 Amplify 的服务器上下文 [1, 2]
+    // Pass the current Next.js request and response objects to Amplify's server context.
     operation: async (contextSpec) => {
-      // 定义要在 Amplify 上下文中执行的异步操作。contextSpec 包含了执行 Amplify 操作所需的上下文信息
+      // Define the asynchronous operation to be executed within the Amplify context. contextSpec contains the context information required for Amplify operations.
       try {
         const session = await fetchAuthSession(contextSpec, {});
-        // 调用 fetchAuthSession 函数来获取用户的身份验证会话。第二个空对象参数表示使用默认的获取会话选项 [1, 2, 5]
+        // Call fetchAuthSession to retrieve the user's authentication session. The second parameter is an empty object, indicating default session retrieval options.
         return session.tokens !== undefined;
-        // 检查会话对象中是否存在 tokens 属性。如果存在，表示用户已通过身份验证，返回 true [1, 2]
+        // Check if the session object contains a tokens property. If it exists, the user is authenticated, and true is returned.
       } catch (error) {
         console.log(error);
         return false;
-        // 如果在获取会话过程中发生任何错误，记录错误并返回 false，表示用户未通过身份验证 [1, 2]
+        // If an error occurs during session retrieval, log the error and return false, indicating the user is not authenticated.
       }
     },
   });
 
   if (authenticated) {
-    // 如果 authenticated 为 true (表示用户已通过身份验证)
+    // If authenticated is true (indicating the user is authenticated)
     return response;
-    // 返回原始的响应，允许请求继续访问其目标路由 [1, 2]
+    // Return the original response, allowing the request to proceed to its target route.
   }
 
   return NextResponse.redirect(new URL("/login", request.url));
-  // 如果 authenticated 为 false (表示用户未通过身份验证)，则将用户重定向到 /login 页面。使用 request.url 构建完整的重定向 URL [1, 2]
+  // If authenticated is false (indicating the user is not authenticated), redirect the user to the /login page. Use request.url to construct the full redirect URL.
 }
 
 export const config = {
-  // 定义中间件的配置对象
+  // Define the configuration object for the middleware.
   matcher: [
     /*
-     * 匹配所有请求路径，但排除以以下内容开头的路径：
-     * - api (API 路由)
-     * - _next/static (静态文件)
-     * - _next/image (图片优化文件)
-     * - favicon.ico (网站图标文件)
-     * - login (登录页面本身，以避免重定向循环)
+     * Match all request paths except those starting with the following:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (site favicon)
+     * - login (the login page itself, to avoid redirect loops)
      */
     "/((?!api|_next/static|_next/image|favicon.ico|login).*)",
   ],

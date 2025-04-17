@@ -32,9 +32,6 @@
   // Alias for shared libraries or utilities
   "@/lib/*": ["./src/lib/*"],
 
-  // Alias for Next.js pages
-  "@/pages/*": ["./src/pages/*"],
-
   // Alias for global styles
   "@/styles/*": ["./src/styles/*"],
 
