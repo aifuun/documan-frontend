@@ -1,10 +1,10 @@
 import { redirect } from 'next/navigation';
-import { AuthGetCurrentUserServer } from '@/utils/amplify-utils';
+import { authGetCurrentUserServer } from '@/utils/amplify-utils';
 
 export default async function AuthCheck() {
   try {
     // Check if the user is authenticated on the server
-    const user = await AuthGetCurrentUserServer();
+    const user = await authGetCurrentUserServer();
 
     if (user) {
       console.log("If authenticated, redirect to the dashboard");

@@ -1,6 +1,6 @@
 
 import { Avatar } from '@/components/catalyst-ui/avatar';
-import { AuthGetCurrentUserServer } from '@/utils/amplify-utils';
+import { authGetCurrentUserServer } from '@/utils/amplify-utils';
 import {
   Dropdown,
   DropdownButton,
@@ -25,7 +25,7 @@ import { redirect } from 'next/navigation';
 
 export default async function SidebarFootContent() {
   try {
-    const user = await AuthGetCurrentUserServer();
+    const user = await authGetCurrentUserServer();
 
     if (!user) {
       console.warn("User is not authenticated, redirecting to login...");

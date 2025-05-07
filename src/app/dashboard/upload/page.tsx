@@ -10,24 +10,29 @@ import { useEffect } from 'react';
 export default  function UploadPage() {
   
   const [identityId, setIdentityId] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchUser() {
+    async function fetchIdentityId() {
       try {
-        const authUser = await getCurrentUser();
-        setIdentityId(authUser?.userId || null);
+        const response = await fetch('/api/get-user-id');
+        if (!response.ok) {
+          throw new Error('Failed to fetch user ID');
+        }
+        const data = await response.json();
+        setIdentityId(data.identityId);
       } catch (err) {
-        console.error('Error fetching user:', err);
+        console.error('Error fetching user ID:', err);
         setIdentityId(null); // Handle error by setting identityId to null
       }
     }
 
-    fetchUser();
+    fetchIdentityId();
   }, []);
 
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
 
   const handleUploadStart = () => {
     setUploading(true);
@@ -47,10 +52,10 @@ export default  function UploadPage() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Upload Documents</h1>
+      <h1 className="text-2xl font-bold mb-4">Upload Documents for {identityId}</h1>
       <FileUploader
         acceptedFileTypes={['application/pdf']}
-        path={`uploaded/`}
+        path={`uploaded/${identityId}/`}
         maxFileCount={1}
         maxFileSize={10000000} // 10 MB
         onUploadStart={handleUploadStart}
